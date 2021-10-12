@@ -23,10 +23,15 @@ jobs:
           curl -X POST \
             -H "Authorization: token ${REVIEWDOG_GITHUB_API_TOKEN}" \
             -H "Accept: application/vnd.github.v3+json" \
-            URL \
+            https://api.github.com/repos/hexylena/testing/pulls/2/reviews \
             -d '{"body": "a review", "event": "COMMENT"}'
         env:
           REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Debug
+        run: |
+            echo ${{ github.event_name }}
+            echo ${{ github.event.pull_request.head.repo.owner }}
 
       - name: github-pr-review/GITHUB_TOKEN
         run: |
