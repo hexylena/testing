@@ -3,7 +3,6 @@
 # Galaxy Training Material [![Gitter](https://badges.gitter.im/Galaxy-Training-Network/training-material.svg)](https://gitter.im/Galaxy-Training-Network/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 This repository collects tutorials, slides, and exercises developed and maintained by the Galaxy community.
-
 ## Usage
 
 The content of the material is developed in Markdown and a templating system ([Jekyll](http://jekyllrb.com/)) is used to format the tutorials and generate a website ([http://training.galaxyproject.org](http://training.galaxyproject.org)).
@@ -20,4 +19,3 @@ The code behind the infrastructure is licensed under the [MIT License](LICENSE.m
 
 ## Acknowledgment and Funding
 
-We would like to thank all contributors, especially those mentioned in the [Contributors list](https://training.galaxyproject.org/training-material/hall-of-fame), the Galaxy community for their constant support, and our funding partners listed in [the GTN](https://training.galaxyproject.org/#acknowledgment-and-funding)
