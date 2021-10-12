@@ -1,1 +1,1 @@
-test.md:10:3 There is something wrong
+test.md:10:3 From github-pr-review/GITHUB_TOKEN
