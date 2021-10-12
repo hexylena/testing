@@ -1,1 +1,0 @@
-test.md:10:3 From github-pr-review/GITHUB_TOKEN
