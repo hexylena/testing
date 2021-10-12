@@ -31,7 +31,9 @@ jobs:
       - name: Debug
         run: |
             echo ${{ github.event_name }}
-            echo ${{ github.event.pull_request.head.repo.owner }}
+            echo ${{ github.event.action_name }}
+            echo ${{ github.event.pull_request.head.repo.owner.id }}
+            echo ${{ github.event.pull_request.base.repo.owner.id }}
 
       - name: github-pr-review/GITHUB_TOKEN
         run: |
