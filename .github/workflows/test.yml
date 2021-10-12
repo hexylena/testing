@@ -1,10 +1,6 @@
 name: Lint Tutorials And Slides
 
-concurrency:
-  group: ci-tutsli-${{ github.head_ref }}
-  cancel-in-progress: true
-
-on: [pull_request_target]
+on: [ pull_request_target ]
 
 permissions:
   contents: read
@@ -22,8 +18,18 @@ jobs:
         with:
           reviewdog_version: latest
 
+      - name: try review api
+        run: |
+          curl -X POST \
+            -H "Authorization: token ${REVIEWDOG_GITHUB_API_TOKEN}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            URL \
+            -d '{"body": "a review", "event": "COMMENT"}'
+        env:
+          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: github-pr-review/GITHUB_TOKEN
         run: |
-            echo "test.md:1:1:Hi from github-pr-review/GITHUB_TOKEN" | reviewdog -efm="%f:%l:%c:%m" -filter-mode=file -reporter=github-pr-review
+            echo "test.md:1:1:Hi from github-pr-review/GITHUB_TOKEN" | reviewdog -efm="%f:%l:%c:%m" -filter-mode=file -reporter=github-pr-review -tee
         env:
             REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
