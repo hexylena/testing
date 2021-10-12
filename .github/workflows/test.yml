@@ -15,6 +15,10 @@ jobs:
         with:
           fetch-depth: 1
 
+      - uses: reviewdog/action-setup@v1
+        with:
+          reviewdog_version: latest
+
       - name: Check Citations
         run: |
           cat errors.txt | reviewdog -efm="%f:%l:%c %m" -filter-mode=file -reporter=github-pr-check
