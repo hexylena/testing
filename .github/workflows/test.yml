@@ -16,7 +16,7 @@ jobs:
 
       - uses: reviewdog/action-setup@v1
         with:
-          reviewdog_version: latest
+          reviewdog_version: nightly
 
       - name: try review api
         run: |
