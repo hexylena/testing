@@ -1,0 +1,23 @@
+name: Lint Tutorials And Slides
+
+concurrency:
+  group: ci-tutsli-${{ github.head_ref }}
+  cancel-in-progress: true
+
+on:
+  pull_request:
+
+jobs:
+  lint-frontmatter:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+
+      - name: Check Citations
+        run: |
+          cat errors.txt | reviewdog -efm="%f:%l:%c %m" -filter-mode=file -reporter=github-pr-check
+        env:
+            REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            REVIEWDOG_TOKEN: "b7820f17345dd4b1"
