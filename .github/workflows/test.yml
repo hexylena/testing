@@ -33,7 +33,7 @@ jobs:
 
       - name: suggestion
         run: |
-            echo '{"message": "test suggestion", "location": {"path": "test.md", "range": {"start": {"line": 9, "column": 1}, "end": {"line": 9, "column": 7}}}, "suggestions": [{"range": {"start": {"line": 9, "column": 3}, "end": {"line": 9, "column": 6}}, "text": "replacement text"}], "severity": "WARNING"}'
-            echo "test.md:2:2:Hi from github-pr-review/PAT" | reviewdog -f=rdjson -filter-mode=file -reporter=github-pr-review
+            echo "zzzzz" >> test.md
+            git diff | reviewdog -f=diff -f.diff.strip=1 -filter-mode=file -reporter=github-pr-review
         env:
             REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
